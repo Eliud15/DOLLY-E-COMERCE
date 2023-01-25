@@ -1,0 +1,112 @@
+body{
+    overflow-x: hidden;
+}
+#container-titulo{
+    display: flex;
+    justify-content: center;
+}
+#menu{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    float: right;
+    right: 20px;
+    top: 30px;
+    cursor: pointer;
+}
+.icons-menu{
+    width: 20px;
+    height: 20px;
+    margin-top: 50px;
+    margin-left: 10px;
+    filter: invert(1);
+    cursor: pointer;
+}
+.aside{
+    width: 60px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    background-color: #000000;
+    border: 2px solid #000000;
+    height: 100vh;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+   display: none;
+}
+.aparecer{
+    animation: aprecer 0.3s ease-in-out ;
+     display: flex;
+}
+@keyframes aprecer {
+    from{
+        left: -1000px;
+    }
+    to{
+        left: 0px;
+       
+    }
+}
+h1{
+    text-align: center;
+}
+
+h4{
+    color: #32cd32;
+    position: absolute;
+    bottom: -30px;
+    margin-left: 40%;
+    width: 100%;
+    background: black;
+    margin-left: -10px;
+    height: 30px;
+    text-align: inherit;
+    padding-top: 5px;
+    box-sizing: border-box;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+main{
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card{
+    width: 250px;
+    height: 400px;
+    margin: 30px;
+    padding: 10px;
+    background-color: #80808069;
+    text-align: center;
+    border-radius: 20px;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    border: 2px solid #fff;
+}
+button{
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+    border: transparent;
+    border-bottom-left-radius:20px;
+    border-bottom-right-radius: 20px ;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.card:hover{
+    background-color: #808080c2;
+}
+.picture{
+    width: 100%;
+    height: 220px;
+    position: relative;
+    z-index: -1;
+}
