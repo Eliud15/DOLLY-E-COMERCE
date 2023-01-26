@@ -1,3 +1,17 @@
+#main-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.btncerrar{
+    position:relative;
+    float: right;
+    border: none;
+    transform: translateY(-300px);
+    background:none;
+    cursor: pointer;
+    z-index: 5;
+}
 .card {
     width: 250px;
     height: 420px;
@@ -6,7 +20,6 @@
     background-color: #80808086;
     text-align: center;
     border-radius: 20px;
-    cursor: pointer;
     position: relative;
     z-index: 2;
     border: 2px solid #80808086;

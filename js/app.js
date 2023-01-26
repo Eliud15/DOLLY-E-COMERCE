@@ -5,13 +5,24 @@ const precio = document.querySelector('.precio')
 const productName = document.querySelector('#productname')
 const description = document.querySelector('#description')
 
-//---------------------OBTENIENDO VALORES DEL LOCALSTORAGE-----------------------------------------------------------
-
-titulo.textContent = localStorage.getItem('@nombreArticulo')
+addEventListener('DOMContentLoaded',()=>{
+  //---------------------OBTENIENDO VALORES DEL LOCALSTORAGE-----------------------------------------------------------  
+    titulo.textContent = localStorage.getItem('@nombreArticulo')
 picture.setAttribute('src', localStorage.getItem('@imagenArticulo'))
 precio.textContent = localStorage.getItem('@precioArticulo')
 productName.textContent = localStorage.getItem('@nombreArticulo')
 description.textContent = localStorage.getItem('@descriptionArticulo')
+    let number = localStorage.length
+    let Arr = [];
+    for (let i = 0; i < number; i++) {
+
+        Arr.push(localStorage.key(i))
+    }
+    let Arr2 = [];
+    Arr.forEach((element) => element.includes('@') === true ? '' : Arr2.push(element))
+    numeroProducto.textContent = `${Arr2.length}`;
+})
+
 
 //------------------------FUNCION DE LA FLECHA VOLVER---------------------------------------------------
 const volver = document.querySelector('.volver').addEventListener('click', () => location.href = 'index.html')
@@ -23,14 +34,16 @@ const cardCarrito = document.querySelector('.card-carrito')
 let numero = 0;
 numeroProducto.textContent = `${numero}`;
 
+
 const btnCarrito = document.querySelector('.btn-sell').addEventListener('click', () => {
    /**-------------------------------------------------------------------------------------------------------------------- */
-     if (localStorage.getItem(titulo.textContent != 'string'))  console.log('no se encuentra agregado')
-     else console.log('se encuentra agregado');
-     /*TERMI9NAR ESTA SECUENCIA AGREGAR UN MENSAJE DICIENDO QUE YA EL PRODUCTO ESTA AGREGADO AL CARRITO*/
-     /**-------------------------------------------------------------------------------------------------------------------- */
-    //-------------------ALMACENANDO VALORES ALCARRITO------------------------------------
-    const producto = {
+   let calculo = localStorage.getItem(titulo.textContent)
+ if (typeof calculo == 'string') {
+    console.log('ya esta agregado');
+ } 
+ else {
+    console.log('no esta agregado');
+       const producto = {
         nombre: titulo.textContent,
         imagen: picture.getAttribute('src'),
         precio: precio.textContent
@@ -44,7 +57,9 @@ const btnCarrito = document.querySelector('.btn-sell').addEventListener('click',
 
 
     /*-------------------------MOSTRAR PRODUCTO--------------------------------------------------------*/
-    let number = localStorage.length
+      
+    
+       let number =localStorage.length
     let Arr = [];
     for (let i = 0; i < number; i++) {
 
@@ -79,18 +94,12 @@ const btnCarrito = document.querySelector('.btn-sell').addEventListener('click',
         card.appendChild(img)
         card.appendChild(h4)
     }
+ } 
+     /*TERMI9NAR ESTA SECUENCIA AGREGAR UN MENSAJE DICIENDO QUE YA EL PRODUCTO ESTA AGREGADO AL CARRITO*/
+     /**-------------------------------------------------------------------------------------------------------------------- */
+    //-------------------ALMACENANDO VALORES ALCARRITO------------------------------------
 })
 const carrito = document.querySelector('.carrito').addEventListener('click', () => {
     location.href='carrito.html'
 })
-addEventListener('DOMContentLoaded',()=>{
-    let number = localStorage.length
-    let Arr = [];
-    for (let i = 0; i < number; i++) {
 
-        Arr.push(localStorage.key(i))
-    }
-    let Arr2 = [];
-    Arr.forEach((element) => element.includes('@') === true ? '' : Arr2.push(element))
-    numeroProducto.textContent = `${Arr2.length}`;
-})

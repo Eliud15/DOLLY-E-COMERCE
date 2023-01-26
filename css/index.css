@@ -34,11 +34,10 @@ body{
     height: 100vh;
     border-top-right-radius: 40px;
     border-bottom-right-radius: 40px;
-   display: none;
 }
 .aparecer{
     animation: aprecer 0.3s ease-in-out ;
-     display: flex;
+     display: none;
 }
 @keyframes aprecer {
     from{

@@ -9,52 +9,7 @@
 </head>
 <body>
     <!-- LO QUE LE FALTA AL CARRRITO ES EL BOTON PARA ELIMINAR LOS PRODUCTOS Y UN BOTON PARA VACIAR EL CARRITO -->
-    <main id="main-container">
-
-    </main>
-
-    <script>
-        const mainContainer = document.querySelector('#main-container')
-        addEventListener('DOMContentLoaded',()=>{
-            let fragmento = document.createDocumentFragment()
-            let number = localStorage.length
-    let Arr = [];
-    for (let i = 0; i < number; i++) {
-
-        Arr.push(localStorage.key(i))
-    }
-    let Arr2 = [];
-    Arr.forEach((element) => element.includes('@') === true ? '' : Arr2.push(element))
-    const productos = [];
-    const productosListos = [];
-    Arr2.forEach((elemnt) => productos.push(localStorage.getItem(elemnt)))
-    productos.forEach((product) => {
-        productosListos.push(...JSON.parse(product))
-    })
-    for (let i = 0; i < productosListos.length; i++) {
-        let card = document.createElement('DIV')
-        card.className = 'card'
-        card.classList.add('card-carrito')
-        //titulo
-        let h2 = document.createElement('H2')
-        h2.textContent = productosListos[i].nombre//--------------------------------
-        //imagen
-        let img = document.createElement('IMG')
-        img.setAttribute('src', productosListos[i].imagen)//-----------------------------
-        img.classList.add('picture')
-        //precio
-        let h4 = document.createElement('H4')
-        h4.classList.add('precio')
-        h4.textContent = productosListos[i].precio//----------------------------
-
-        card.appendChild(h2)
-        card.appendChild(img)
-        card.appendChild(h4)
-       fragmento.appendChild(card)
-       mainContainer.appendChild(fragmento)
-    }
-        })
-         
-    </script>
+    <main id="main-container"></main>
+    <script src="js/carrito.js"></script>
 </body>
 </html>

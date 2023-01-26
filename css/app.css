@@ -21,6 +21,50 @@ body{
     position: relative;
     top: 240px;
 }
+h1{
+    text-align: center;
+}
+.overlay{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    background-color: #0000008c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.overlayoff{
+    display: flex;
+}
+.mensaje{
+    width: 400px;
+    height: 200px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    text-align: center;
+}
+.titulo-mensaje{
+    margin-top: 45px;
+}
+.aviso{
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    padding-top: 10px;
+}
+
+.cerrar{
+    position: relative;
+    height: auto;
+    float: right;
+    right: 10px;
+    top: 10px;
+    border: none;
+    cursor: pointer;
+}
 li{
     display: flex;
 }
@@ -132,15 +176,6 @@ h5{
     right: 20px;
     cursor: pointer;
     z-index: 4;
-}
-.overlay-carrito{
-    width: 100%;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    z-index: 3;
-    background-color: #ffffff;
-    display: none;
 }
 .aparecer{
     display: block;
