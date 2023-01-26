@@ -1,14 +1,14 @@
 const mainContainer = document.querySelector('#main-container')
-        addEventListener('DOMContentLoaded',()=>{
-            let fragmento = document.createDocumentFragment()
-            let number = localStorage.length
+addEventListener('DOMContentLoaded', () => {
+    let fragmento = document.createDocumentFragment()
+    let number = localStorage.length
     let Arr = [];
     for (let i = 0; i < number; i++) {
 
         Arr.push(localStorage.key(i))
     }
     let Arr2 = [];
-    Arr.forEach((element) => element.includes('@') === true ? '' : Arr2.push(element))
+    Arr.forEach((element) => element.includes('@') === true || element.includes('__') === true ? '' : Arr2.push(element))
     const productos = [];
     const productosListos = [];
     Arr2.forEach((elemnt) => productos.push(localStorage.getItem(elemnt)))
@@ -33,21 +33,21 @@ const mainContainer = document.querySelector('#main-container')
 
         //CERRAR
         let btnEliminarProducto = document.createElement('BUTTON')
-        btnEliminarProducto.textContent='❌'
+        btnEliminarProducto.textContent = '❌'
         btnEliminarProducto.classList.add('btncerrar')
         card.appendChild(h2)
         card.appendChild(img)
         card.appendChild(h4)
         card.appendChild(btnEliminarProducto)
-       fragmento.appendChild(card)
-       mainContainer.appendChild(fragmento)
-      
-       
-       btnEliminarProducto.addEventListener('click',(e)=>{
-        let productoEliminado = btnEliminarProducto.parentElement.firstElementChild.innerHTML
-        localStorage.removeItem(productoEliminado)
-        location.href='./carrito.html'
-       } )
+        fragmento.appendChild(card)
+        mainContainer.appendChild(fragmento)
+
+
+        btnEliminarProducto.addEventListener('click', (e) => {
+            let productoEliminado = btnEliminarProducto.parentElement.firstElementChild.innerHTML
+            localStorage.removeItem(productoEliminado)
+            location.href = './carrito.html'
+        })
     }
-    })
-    const volver = document.querySelector('.volver').addEventListener('click', () => location.href = 'app.html')
+})
+const volver = document.querySelector('.volver').addEventListener('click', () => location.href = 'app.html')

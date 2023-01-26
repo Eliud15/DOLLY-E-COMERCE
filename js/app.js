@@ -19,7 +19,7 @@ description.textContent = localStorage.getItem('@descriptionArticulo')
         Arr.push(localStorage.key(i))
     }
     let Arr2 = [];
-    Arr.forEach((element) => element.includes('@') === true ? '' : Arr2.push(element))
+    Arr.forEach((element) => element.includes('@') === true || element.includes('__') === true ? '' : Arr2.push(element))
     numeroProducto.textContent = `${Arr2.length}`;
 })
 
@@ -72,7 +72,7 @@ const btnCarrito = document.querySelector('.btn-sell').addEventListener('click',
         Arr.push(localStorage.key(i))
     }
     let Arr2 = [];
-    Arr.forEach((element) => element.includes('@') === true ? '' : Arr2.push(element))
+    Arr.forEach((element) => element.includes('@') === true || element.includes('__') === true ? '' : Arr2.push(element))
     const productos = [];
     const productosListos = [];
     Arr2.forEach((elemnt) => productos.push(localStorage.getItem(elemnt)))

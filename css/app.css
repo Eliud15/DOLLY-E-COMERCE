@@ -18,10 +18,10 @@ body{
 }
 .container-btns{
     width: 400px;
-   
     position: relative;
     display: flex;
     top: 240px;
+    z-index: 2;
 }
 h1{
     text-align: center;
@@ -42,11 +42,13 @@ h1{
     display: flex;
 }
 .mensaje{
+    position: relative;
     width: 400px;
     height: 200px;
     background-color: #ffffff;
     border-radius: 20px;
     text-align: center;
+    z-index: 100;
 }
 .titulo-mensaje{
     margin-top: 45px;
@@ -165,6 +167,7 @@ h5{
     right: 20px;
     cursor: pointer;
     z-index: 4;
+    bottom: 0;
 }
 #numeroproducto{
     width: 20px;
