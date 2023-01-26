@@ -10,6 +10,8 @@
 </head>
 
 <body>
+    <script src="https://www.paypal.com/sdk/js?client-id=AWq_HZQ5O8Wun4BxH8j3FrZ9TeYnrqIzGLVxvwm__pO3_MdEAkOT6twXNufsAGIroBpTcp1Riac9Vmd7"></script>
+   
     <header id="container-titulo">
             <img class="volver" src="https://cdn-icons-png.flaticon.com/512/507/507257.png" alt="">
                 <h1><code>Dolly E-comerce</code> </h1>
@@ -43,8 +45,8 @@
                     <li><h3 id="pd"><code>Product Description:</code> <h5 id="description"></h5></h3></li>
                 </ol>
             </div>
-            <div id="container-btns">
-                 <button class="btn btn-buy">Comprar</button>
+            <div id="paypal-button-container" class="container-btns">
+                 <!-- <button class="btn btn-buy">Comprar</button> -->
                 <button class="btn btn-sell">Agregar al carrito</button>
             </div>
         </div>
@@ -53,6 +55,94 @@
     </main>
 
     <script src="js/app.js"></script>
+    <!-- <script src="js/apipaypal.js"></script> -->
+    <script>
+      let precioBruto= document.querySelector('.precio')
+        let precioSinLetras =[];
+         
+         addEventListener('DOMContentLoaded',()=>{
+          let precioNormal=null;
+         precioSinLetras = precio.textContent
+        
+        precioNormal = parseInt(precioSinLetras.substring(9)) ;
+        console.log(precioNormal);
+        paypal.Buttons({
+          // Sets up the transaction when a payment button is clicked
+          style:{
+            color:'white',
+            shape:'pill',
+            label:'pay',
+            layout:'horizontal'
+          },
+          createOrder:  (data, actions) => {
+            return actions.order.create({
+              purchase_units: [{
+                amount: {
+                  value: precioNormal // Can also reference a variable or function
+                }
+              }]
+            })
+          },
+         
+          // Finalize the transaction after payer approval
+          onApprove: (data, actions) => {
+            return actions.order.capture().then(function(orderData) {
+              // Successful capture! For dev/demo purposes:
+              console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+              const transaction = orderData.purchase_units[0].payments.captures[0];
+              alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
+              // When ready to go live, remove the alert and show a success message within this page. For example:
+              // const element = document.getElementById('paypal-button-container');
+              // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+              // Or go to another URL:  actions.redirect('thank_you.html');
+              location.href='index.html'
+            });
+          }, onCancel: function (data){
+                alert('Pago cancelado por el usuario')
+            },
+        }).render('#paypal-button-container');
+      })
+         
+      /* let precioNormal=precioSinLetras[0];
+        paypal.Buttons({
+          // Sets up the transaction when a payment button is clicked
+          style:{
+            color:'white',
+            shape:'pill',
+            label:'pay',
+            layout:'horizontal'
+          },
+          createOrder:  (data, actions) => {
+            return actions.order.create({
+              purchase_units: [{
+                amount: {
+                  value: '4788' // Can also reference a variable or function
+                }
+              }]
+            })
+          },
+         
+          // Finalize the transaction after payer approval
+          onApprove: (data, actions) => {
+            return actions.order.capture().then(function(orderData) {
+              // Successful capture! For dev/demo purposes:
+              console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+              const transaction = orderData.purchase_units[0].payments.captures[0];
+              alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
+              // When ready to go live, remove the alert and show a success message within this page. For example:
+              // const element = document.getElementById('paypal-button-container');
+              // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+              // Or go to another URL:  actions.redirect('thank_you.html');
+              location.href='index.html'
+            });
+          }, onCancel: function (data){
+                alert('Pago cancelado por el usuario')
+            },
+        }).render('#paypal-button-container');
+        
+      
+       */
+      </script>
 </body>
 
 </html>

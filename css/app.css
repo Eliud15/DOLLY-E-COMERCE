@@ -16,9 +16,11 @@ body{
     height: auto;
     flex-direction: column;
 }
-#container-btns{
-    width: auto;
+.container-btns{
+    width: 400px;
+   
     position: relative;
+    display: flex;
     top: 240px;
 }
 h1{
@@ -126,10 +128,11 @@ h5{
 
 .btn{
    /*transform: translateY(240px);*/
-  width: 135.125px;
-   margin: 0 auto;
+  /* width: 135.125px; */
+   /* margin: 0 auto; */
    border: 2px solid white;
-   padding: 10px;
+   padding-bottom:5px;
+   padding-top: 5px;
    font-weight: 700;
    border-radius: 20px;
    cursor: pointer;
@@ -143,8 +146,15 @@ h5{
     background-color: #32cd32;
 }
 .btn-sell{
+    width: 400px;
+    height: 25px;
     position: relative;
-    background-color: rgb(255, 38, 38);
+    margin-right: 20px;
+    padding-bottom: 5px;
+    color: rgb(54, 53, 53);
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: #ffffff;
 }
 /*CARRITO*/
 .carrito-container{
@@ -191,9 +201,10 @@ h5{
     #container-info {
         display: block;
     }
-    #container-btns{
+    .container-btns{
        display: flex;
        justify-content: center;
+       margin: 0 auto;
     }
     
 }
