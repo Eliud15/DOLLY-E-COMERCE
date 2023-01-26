@@ -34,14 +34,20 @@ const cardCarrito = document.querySelector('.card-carrito')
 let numero = 0;
 numeroProducto.textContent = `${numero}`;
 
-
+const overlay = document.querySelector('.overlay')
+let btnCerrar =document.querySelector('.cerrar').addEventListener('click',()=>overlay.classList.toggle('overlayoff') )
 const btnCarrito = document.querySelector('.btn-sell').addEventListener('click', () => {
    /**-------------------------------------------------------------------------------------------------------------------- */
    let calculo = localStorage.getItem(titulo.textContent)
  if (typeof calculo == 'string') {
-    console.log('ya esta agregado');
+    const mensajeTitulo = document.querySelector('.titulo-mensaje') 
+    mensajeTitulo.textContent='Listo ya esta agregado al carrito!'
+    overlay.classList.toggle('overlayoff')
  } 
  else {
+    const mensajeTitulo = document.querySelector('.titulo-mensaje') 
+    mensajeTitulo.textContent='Agregado correcta mente!'
+    overlay.classList.toggle('overlayoff')
     console.log('no esta agregado');
        const producto = {
         nombre: titulo.textContent,

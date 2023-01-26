@@ -50,3 +50,4 @@ const mainContainer = document.querySelector('#main-container')
        } )
     }
     })
+    const volver = document.querySelector('.volver').addEventListener('click', () => location.href = 'app.html')
