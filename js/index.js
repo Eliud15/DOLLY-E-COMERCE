@@ -26,7 +26,7 @@ fetch('https://dummyjson.com/products') //PETICION ALA API
         let h6 = document.createElement('H6')
         h6.textContent=productos.description
         h6.style.opacity='0'
-
+//
         //PRECIO
         let h4 = document.createElement('H4')
         h4.textContent=`Precio: $${productos.price}` 
