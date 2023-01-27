@@ -1,5 +1,10 @@
 let containerProductos= document.querySelector('#container-productos'); //CONTENEDOR DE LOS PRODUCTOS
-
+let overlay= document.querySelector('.overlay');
+addEventListener('DOMContentLoaded',()=>{
+  setTimeout(()=>{
+  overlay.style.display='none'
+  },2000)
+  
 fetch('https://dummyjson.com/products') //PETICION ALA API
     .then(datos=> datos.json())
     .then(datos=> {
@@ -65,3 +70,4 @@ fetch('https://dummyjson.com/products') //PETICION ALA API
     let menu = document.querySelector('#menu')
     let aside = document.querySelector('.aside')
     menu.addEventListener('click',()=> aside.classList.toggle('aparecer'))
+})

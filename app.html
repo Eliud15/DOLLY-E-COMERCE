@@ -63,7 +63,6 @@
          addEventListener('DOMContentLoaded',()=>{
           let precioNormal=null;
          precioSinLetras = precio.textContent
-        
         precioNormal = parseInt(precioSinLetras.substring(9)) ;
         console.log(precioNormal);
         paypal.Buttons({
@@ -95,7 +94,7 @@
               // const element = document.getElementById('paypal-button-container');
               // element.innerHTML = '<h3>Thank you for your payment!</h3>';
               // Or go to another URL:  actions.redirect('thank_you.html');
-              location.href='index.html'
+              location.href='finalizar.html'
             });
           }, onCancel: function (data){
                 alert('Pago cancelado por el usuario')
